@@ -1,0 +1,26 @@
+{
+  "name": "cricket-career-sim",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron": "electron ."
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.0",
+    "electron": "^25.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
