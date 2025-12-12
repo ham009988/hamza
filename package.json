@@ -1,14 +1,20 @@
 {
   "name": "cricket-career-sim",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A desktop cricket career simulation game",
+  "author": "Cricket Career Sim Team",
   "type": "module",
   "main": "electron/main.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "electron": "electron ."
+    "electron": "electron .",
+    "build:win": "npm run build && electron-builder --win",
+    "build:win:portable": "npm run build && electron-builder --win portable",
+    "build:win:nsis": "npm run build && electron-builder --win nsis",
+    "package:win": "npm run build && electron-builder --win --dir && cd release && zip -r Cricket-Career-Sim-1.0.0-win-x64-portable.zip win-unpacked/"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -22,5 +28,39 @@
     "vite": "^4.3.0",
     "electron": "^25.0.0",
     "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.cricketcareersim.app",
+    "productName": "Cricket Career Sim",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   }
 }
