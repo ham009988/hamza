@@ -54,7 +54,8 @@
             "x64"
           ]
         }
-      ]
+      ],
+      "sign": null
     },
     "nsis": {
       "oneClick": false,
